@@ -61,8 +61,9 @@ itself). Controls and constraints: {doc}`../pipeline/01_recording`.
 
 **Or use an existing dataset.** Any LeRobot v3 dataset with the camera
 streams and `meta/*_scene_state.json` files works from stage 3 onward. The
-reference corpus and the status of its Hub upload are described in
-{doc}`../concepts/data_layout`.
+reference corpus is on the Hugging Face Hub as
+[`ill337/so101-bin-lift-6cam-cylroom`](https://huggingface.co/datasets/ill337/so101-bin-lift-6cam-cylroom);
+how to download a pinned revision is in {doc}`../concepts/data_layout`.
 
 Check a recorded bin before spending GPU time on it:
 
