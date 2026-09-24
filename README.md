@@ -17,8 +17,13 @@ Simulation only, built on NVIDIA Isaac Lab and the low-cost
 - **Documentation:** https://ille-s.github.io/so101-camera-multiview-bench/
 - **Dataset:** [ill337/so101-bin-lift-6cam-cylroom](https://huggingface.co/datasets/ill337/so101-bin-lift-6cam-cylroom)
   on the Hugging Face Hub: 540 demonstrations, six viewpoints, LeRobot v3
-- **Browse the dataset:** [open it in the LeRobot dataset visualizer](https://huggingface.co/spaces/lerobot/visualize_dataset?path=%2Fill337%2Fso101-bin-lift-6cam-cylroom%2Fepisode_0)
-  (all six camera streams and the joint trajectories, episode by episode)
+
+<a href="https://huggingface.co/spaces/lerobot/visualize_dataset?path=ill337/so101-bin-lift-6cam-cylroom">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://huggingface.co/datasets/huggingface/badges/resolve/main/visualize-this-dataset-xl-dark.svg">
+    <img alt="Visualize this dataset" src="https://huggingface.co/datasets/huggingface/badges/resolve/main/visualize-this-dataset-xl.svg">
+  </picture>
+</a>
 
 > Not affiliated with NVIDIA, Hugging Face, or TheRobotStudio.
 
