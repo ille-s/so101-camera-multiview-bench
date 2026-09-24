@@ -14,6 +14,10 @@ therefore its own human executions.
 Simulation only, built on NVIDIA Isaac Lab and the low-cost
 [SO-ARM101](https://github.com/TheRobotStudio/SO-ARM100). No robot required.
 
+- **Documentation:** https://ille-s.github.io/so101-camera-multiview-bench/
+- **Dataset:** [ill337/so101-bin-lift-6cam-cylroom](https://huggingface.co/datasets/ill337/so101-bin-lift-6cam-cylroom)
+  on the Hugging Face Hub: 540 demonstrations, six viewpoints, LeRobot v3
+
 > Not affiliated with NVIDIA, Hugging Face, or TheRobotStudio.
 
 ## What it does
