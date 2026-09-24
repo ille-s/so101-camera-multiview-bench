@@ -65,29 +65,26 @@ when checking whether an evaluated bin was part of training.
 ## Getting the reference corpus
 
 The corpus used during development (`merged_6cam_cylroom`, 540 episodes, 20
-bins × 27, six cameras) is not yet published.
-
-:::{admonition} Hub upload pending
-:class: warning
-
-A Hugging Face Hub repository exists but currently holds an older,
-538-episode fusion from a different scene — not the corpus described here.
-Publishing `merged_6cam_cylroom` is an open task. The repository ID and the
-revision tag will be filled in here once the upload exists. Until then, the download
-below is a template.
-:::
+bins × 27, six cameras) is published on the Hugging Face Hub as
+[`ill337/so101-bin-lift-6cam-cylroom`](https://huggingface.co/datasets/ill337/so101-bin-lift-6cam-cylroom).
+Its dataset card lists the sampling design, the held-out bins of the thesis
+split and a repair of six episodes made after the thesis policies were trained.
 
 ```bash
-# adjust: both values come from the upload, which does not exist yet, so this
-# block is a template. It runs as written and fails at the Hub, not in bash.
-REPO_ID=owner/merged_6cam_cylroom
-REVISION=v1.0.0
+REPO_ID=ill337/so101-bin-lift-6cam-cylroom
+# the commit this page was written against; replace it with a newer commit or tag
+# from the repository's history if you want later changes
+REVISION=63395a482e1d2436f617083257165ad75ecc346f
 
 huggingface-cli download "$REPO_ID" \
     --repo-type dataset \
     --revision "$REVISION" \
     --local-dir datasets/04_fused/merged_6cam_cylroom
 ```
+
+The earlier 538-episode fusion of the same task in a textured room scene is
+[`ill337/so101-bin-lift-6cam`](https://huggingface.co/datasets/ill337/so101-bin-lift-6cam).
+It is not the corpus described on this page.
 
 Always pull and cite a *pin* (`--revision` with a tag or commit), never the
 bare repository name. Hub repos can be renamed, extended, or rewritten — a
