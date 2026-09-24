@@ -1,0 +1,21 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+# "No pad" — an EMPTY Xform with NO geometry and NO collider. Used to remove the
+# action pad from the cylindrical-room scene entirely (cube rests on the bare
+# table-top collider). The prim still exists (with translate+orient+scale xform
+# ops) so the teleop manager machinery that references scene["action_pad"]
+# (scene_loader / scene_state pose write, cylroom_replay._set_pad_yaw orient set)
+# resolves it without error — it simply renders nothing.
+
+def Xform "World"
+{
+    double3 xformOp:translate = (0, 0, 0)
+    quatd xformOp:orient = (1, 0, 0, 0)
+    double3 xformOp:scale = (1, 1, 1)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+}

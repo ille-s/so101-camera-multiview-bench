@@ -1,0 +1,12 @@
+* text=auto eol=lf
+
+# Binary assets. Deliberately NOT git-lfs: GitHub's free tier grants 1 GiB of LFS
+# bandwidth per month account-wide, and forks draw against the same quota.
+#
+# .usda is the ASCII form of USD and stays diffable -- that is the reason to keep
+# scene assets as .usda rather than .usd in the first place. Only .usd is binary.
+*.usd   binary
+*.usda  text eol=lf
+*.png   binary
+*.jpg   binary
+*.mp4   binary

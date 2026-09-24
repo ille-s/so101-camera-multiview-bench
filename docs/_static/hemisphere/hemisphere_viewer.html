@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html><head>
+<title>Cylroom Camera Grid - 3D Viewer</title>
+<style>
+  body { margin: 0; overflow: hidden; font-family: monospace; background: #1a1a2e; }
+  #info { position: absolute; top: 10px; left: 10px; color: #eee; font-size: 13px; z-index: 10; }
+  #tooltip { position: absolute; background: rgba(0,0,0,0.8); color: #0ff; padding: 4px 8px;
+             border-radius: 4px; font-size: 12px; display: none; pointer-events: none; z-index: 20; }
+</style>
+</head><body>
+<div id="info">
+  Cylroom Camera Grid &mdash; 25 candidate poses, 5 used (r=0.4 m)<br>
+  <span style="color:#4a9eff">&#9679;</span> candidate position &nbsp;
+  <span style="color:#e74c3c">&#9679;</span> used by cylroom scene &nbsp;
+  <span style="color:#2ecc71">&#10005;</span> look-at<br>
+  Drag to rotate, scroll to zoom
+</div>
+<div id="tooltip"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+const poses = [{"id": "az000_el20", "az": 0, "el": 20, "x": 0.3758770483143634, "y": 0.0, "z": 0.1368080573302675, "used": false}, {"id": "az045_el20", "az": 45, "el": 20, "x": 0.26578520975546993, "y": 0.2657852097554699, "z": 0.1368080573302675, "used": false}, {"id": "az090_el20", "az": 90, "el": 20, "x": 2.301583120455701e-17, "y": 0.3758770483143634, "z": 0.1368080573302675, "used": false}, {"id": "az135_el20", "az": 135, "el": 20, "x": -0.2657852097554699, "y": 0.26578520975546993, "z": 0.1368080573302675, "used": false}, {"id": "az180_el20", "az": 180, "el": 20, "x": -0.3758770483143634, "y": 4.603166240911402e-17, "z": 0.1368080573302675, "used": false}, {"id": "az225_el20", "az": 225, "el": 20, "x": -0.26578520975547, "y": -0.2657852097554699, "z": 0.1368080573302675, "used": false}, {"id": "az270_el20", "az": 270, "el": 20, "x": -6.904749361367102e-17, "y": -0.3758770483143634, "z": 0.1368080573302675, "used": false}, {"id": "az315_el20", "az": 315, "el": 20, "x": 0.2657852097554699, "y": -0.26578520975547, "z": 0.1368080573302675, "used": false}, {"id": "az000_el45", "az": 0, "el": 45, "x": 0.28284271247461906, "y": 0.0, "z": 0.282842712474619, "used": true}, {"id": "az045_el45", "az": 45, "el": 45, "x": 0.20000000000000004, "y": 0.2, "z": 0.282842712474619, "used": false}, {"id": "az090_el45", "az": 90, "el": 45, "x": 1.731912112470987e-17, "y": 0.28284271247461906, "z": 0.282842712474619, "used": true}, {"id": "az135_el45", "az": 135, "el": 45, "x": -0.2, "y": 0.20000000000000004, "z": 0.282842712474619, "used": false}, {"id": "az180_el45", "az": 180, "el": 45, "x": -0.28284271247461906, "y": 3.463824224941974e-17, "z": 0.282842712474619, "used": true}, {"id": "az225_el45", "az": 225, "el": 45, "x": -0.2000000000000001, "y": -0.2, "z": 0.282842712474619, "used": false}, {"id": "az270_el45", "az": 270, "el": 45, "x": -5.1957363374129606e-17, "y": -0.28284271247461906, "z": 0.282842712474619, "used": true}, {"id": "az315_el45", "az": 315, "el": 45, "x": 0.19999999999999998, "y": -0.2000000000000001, "z": 0.282842712474619, "used": false}, {"id": "az000_el70", "az": 0, "el": 70, "x": 0.13680805733026755, "y": 0.0, "z": 0.37587704831436336, "used": false}, {"id": "az045_el70", "az": 45, "el": 70, "x": 0.09673790505919015, "y": 0.09673790505919014, "z": 0.37587704831436336, "used": false}, {"id": "az090_el70", "az": 90, "el": 70, "x": 8.377077475353988e-18, "y": 0.13680805733026755, "z": 0.37587704831436336, "used": false}, {"id": "az135_el70", "az": 135, "el": 70, "x": -0.09673790505919014, "y": 0.09673790505919015, "z": 0.37587704831436336, "used": false}, {"id": "az180_el70", "az": 180, "el": 70, "x": -0.13680805733026755, "y": 1.6754154950707976e-17, "z": 0.37587704831436336, "used": false}, {"id": "az225_el70", "az": 225, "el": 70, "x": -0.09673790505919017, "y": -0.09673790505919014, "z": 0.37587704831436336, "used": false}, {"id": "az270_el70", "az": 270, "el": 70, "x": -2.513123242606196e-17, "y": -0.13680805733026755, "z": 0.37587704831436336, "used": false}, {"id": "az315_el70", "az": 315, "el": 70, "x": 0.09673790505919012, "y": -0.09673790505919017, "z": 0.37587704831436336, "used": false}, {"id": "az000_el90", "az": 0, "el": 90, "x": 2.4492935982947065e-17, "y": 0.0, "z": 0.4, "used": true}];
+const candidateColor = 0x4a9eff;
+const usedColor = 0xe74c3c;
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x1a1a2e);
+const camera = new THREE.PerspectiveCamera(50, window.innerWidth/window.innerHeight, 0.01, 100);
+camera.position.set(1.0, -0.9, 0.8);
+const renderer = new THREE.WebGLRenderer({antialias: true});
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+const controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.target.set(0, 0, 0.2);
+controls.enableDamping = true;
+
+scene.add(new THREE.GridHelper(2, 20, 0x333355, 0x222244));
+const lookat = new THREE.Mesh(new THREE.SphereGeometry(0.02, 16, 16),
+  new THREE.MeshBasicMaterial({color: 0x2ecc71}));
+scene.add(lookat);
+
+poses.forEach(p => {
+  const r = p.used ? 0.03 : 0.018;
+  const col = p.used ? usedColor : candidateColor;
+  const m = new THREE.Mesh(new THREE.SphereGeometry(r, 16, 16),
+    new THREE.MeshBasicMaterial({color: col}));
+  // three.js is Y-up; map (x,y,z)->(x, z, -y) so Z points up like the scene
+  m.position.set(p.x, p.z, -p.y);
+  scene.add(m);
+  const lm = new THREE.LineBasicMaterial({color: 0x555577, transparent: true, opacity: p.used ? 0.5 : 0.2});
+  const lg = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(p.x, p.z, -p.y), new THREE.Vector3(0,0,0)]);
+  scene.add(new THREE.Line(lg, lm));
+});
+
+function animate(){ requestAnimationFrame(animate); controls.update(); renderer.render(scene, camera); }
+animate();
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth/window.innerHeight; camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+</script>
+</body></html>

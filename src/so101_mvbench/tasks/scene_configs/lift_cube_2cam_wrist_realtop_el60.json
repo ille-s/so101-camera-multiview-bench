@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.2",
+  "workspace_origin_m": [
+    0.0,
+    0.0,
+    0.8663
+  ],
+  "_comment": "Sim2real co-training top cam @ real C920 pose. Pose graph computed az+2.2/el+76.2/r0.661; USER picked az0 + el60 by visual sim-vs-real match (cylroom). focal 7.0 @ aperture 10 ~= 71deg H-FOV (calibrated C920). Recorder honors focal_length/horizontal_aperture; cylroom shift via TABLE_HEMISPHERE_ORIGIN.",
+  "cameras": {
+    "wrist": {
+      "type": "ego",
+      "offset_pos_m": [
+        -0.005,
+        0.06,
+        -0.062
+      ],
+      "offset_rot_deg": [
+        -45,
+        0,
+        0
+      ],
+      "focal_length": 2.4
+    },
+    "top": {
+      "type": "external",
+      "azimuth_deg": 0.0,
+      "elevation_deg": 60.0,
+      "radius_m": 0.661,
+      "focal_length": 7.0,
+      "horizontal_aperture": 10.0
+    }
+  },
+  "objects": {
+    "cube": {
+      "type": "cube",
+      "init_pos_m": [
+        0.0,
+        0.0,
+        -0.07
+      ],
+      "size_m": [
+        0.04,
+        0.04,
+        0.04
+      ],
+      "color_rgb": [
+        0.8,
+        0.2,
+        0.2
+      ],
+      "mass_kg": 0.05
+    },
+    "action_pad": {
+      "type": "usd_asset",
+      "init_pos_m": [
+        0.0,
+        0.0,
+        -0.0982
+      ],
+      "usd_path": "assets/usd/action-pad-round.usda"
+    }
+  },
+  "robot": {
+    "type": "so101_white",
+    "init_rot_xyzw": [
+      0.0,
+      0.0,
+      0.7071,
+      0.7071
+    ],
+    "default_joint_pos_rad": {
+      "Rotation": 0.0,
+      "Pitch": 0.0,
+      "Elbow": 0.0,
+      "Wrist_Pitch": 0.0,
+      "Wrist_Roll": 0.0,
+      "Jaw": 0.0
+    },
+    "home_joint_pos_rad": {
+      "Rotation": 0.0,
+      "Pitch": 0.0,
+      "Elbow": 0.0,
+      "Wrist_Pitch": 1.5707963267948966,
+      "Wrist_Roll": -1.5707963267948966,
+      "Jaw": 0.0
+    },
+    "color_rgb": [
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "visual": {
+    "room_light_exposure": 1.0,
+    "env_light_exposure": 1.0,
+    "sky_dome_yaw_rad": 0.0,
+    "action_pad_yaw_rad": 0.0,
+    "dome_light_y_mirror": true
+  }
+}

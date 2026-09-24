@@ -1,0 +1,72 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "so101-camera-multiview-bench"
+version = "0.1.0"
+description = "Reproducible camera-viewpoint ablations for imitation learning on the SO-ARM101 in Isaac Lab"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Ilja Schirschow" }]
+
+# [project.urls] is deliberately absent until the repository is published.
+# A urls table pointing at a placeholder is worse than no table: it renders as
+# a working link on PyPI and in tooling.
+
+# Derived from the actual imports, not guessed: an AST sweep over src/so101_mvbench
+# split every third-party import by whether its module also needs Isaac Sim. These
+# are the ones that do not -- stages 2a, 3 and 5 run on them without a simulator.
+# Versions are the ones the pipeline was verified against on 2026-08-12.
+dependencies = [
+    "numpy>=2.0",
+    "torch>=2.6",
+    "lerobot>=0.5.1",
+    "pyarrow>=17",
+    "torchcodec>=0.5",
+    "pandas>=2.2",
+    "matplotlib>=3.9",
+    "scipy>=1.14",
+    "pillow>=10",
+    "imageio>=2.34",
+    "opencv-python>=4.10",
+]
+
+[project.optional-dependencies]
+# Isaac Sim and Isaac Lab are not on PyPI proper -- they install from NVIDIA's
+# index, so they cannot be plain dependencies. Stages 1, 2b and 4 need them.
+#   pip install --extra-index-url https://pypi.nvidia.com "isaacsim[all]==6.0.0" isaaclab
+sim = ["gymnasium>=1.0"]
+# Only for camera_grid --frames, which draws coordinate frames with Corke's SE3.plot().
+# Guarded by try/except with an install hint, so the package works without it.
+viz = ["spatialmath-python>=1.1"]
+dev = ["pytest>=8", "ruff>=0.6"]
+# Sphinx and its extensions. Mirrors the bootstrap list in docs/serve_docs.sh:
+# that script is what a human runs, this extra is what CI runs, and the two must
+# not drift. autodoc_mock_imports covers Isaac Sim, so no simulator is needed.
+docs = [
+    "sphinx>=8.0,<9",
+    "sphinx-book-theme>=1.1",
+    "myst-nb>=1.1",
+    "sphinx-autodoc-typehints>=2.4",
+    "sphinx-copybutton>=0.5",
+    "sphinx-design>=0.6",
+    "sphinxcontrib-mermaid>=1.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/so101_mvbench"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["sim: requires Isaac Sim (not run by default)"]
+
+[tool.ruff]
+line-length = 100
+src = ["src"]
+extend-exclude = ["src/so101_mvbench/vendor"]

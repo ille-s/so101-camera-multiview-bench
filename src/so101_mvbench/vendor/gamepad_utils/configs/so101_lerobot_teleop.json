@@ -1,0 +1,81 @@
+{
+  "_comment": "Gamepad config for lerobot_so101_teleop pipeline. Limits in LeRobot raw units. BT Xbox Wireless profile. neutral_pos is computed at runtime from sim init_state.",
+  "output_mode": "absolute",
+  "limits_unit": "raw",
+  "dead_zone": 0.20,
+  "global_scale": 0.75,
+  "device": "Xbox Wireless Controller (BT)",
+  "button_labels": {
+    "_comment": "Linux joystick button indices. BT Xbox has non-standard mapping (X=3, Y=4 statt Linux-Standard X=2, Y=3). Values mirror master_config.json.",
+    "A": 0,
+    "B": 1,
+    "X": 3,
+    "Y": 4,
+    "LB": 6,
+    "RB": 7,
+    "SELECT": 10,
+    "START": 11
+  },
+  "joints": {
+    "shoulder_pan": {
+      "axis": 0,
+      "scale": 1.0,
+      "invert": false,
+      "dead_zone": 0.20,
+      "limits": [
+        -100,
+        100
+      ]
+    },
+    "shoulder_lift": {
+      "axis": 1,
+      "scale": 0.8,
+      "invert": true,
+      "dead_zone": 0.20,
+      "limits": [
+        -100,
+        100
+      ]
+    },
+    "elbow_flex": {
+      "axis": 3,
+      "scale": 1.0,
+      "invert": true,
+      "dead_zone": 0.20,
+      "limits": [
+        -100,
+        90
+      ]
+    },
+    "wrist_flex": {
+      "axis": 2,
+      "scale": 0.75,
+      "invert": false,
+      "dead_zone": 0.20,
+      "limits": [
+        -95,
+        95
+      ]
+    },
+    "wrist_roll": {
+      "pos_button": 7,
+      "neg_button": 6,
+      "scale": 1.5,
+      "invert": false,
+      "limits": [
+        -100,
+        100
+      ]
+    }
+  },
+  "gripper": {
+    "open_axis": 4,
+    "close_axis": 5,
+    "trigger_threshold": 0.1,
+    "trigger_min": -1.0,
+    "open_pos": 80.0,
+    "close_pos": 0.0,
+    "start_pos": 1.5,
+    "scale": 1.0
+  }
+}

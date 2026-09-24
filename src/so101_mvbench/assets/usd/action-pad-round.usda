@@ -1,0 +1,56 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+# Round, logo-free, matte action pad for the Phase-4 cylindrical-room scene.
+#
+# VISUAL-ONLY (no collider) — empirically the ONLY stable config. Any *proud*
+# collider in the workspace (top 4 mm above the table) destabilises the arm during
+# the home-return: r=0.35 -> hard collapse (joint jump 149deg, mean|s-a| 115),
+# r=0.20 -> partial collapse (93 / 79), no-collider -> stable (jump <1deg, mean 4).
+# Collider type (convexHull / triangle-mesh) is irrelevant. So the cube rests on the
+# TABLE-TOP collider (0.770) and the pad is a pure visual marker. The pad top sits a
+# hair above the table (SceneCfg z so top ~0.7705) so the cube (bottom 0.770) sits
+# essentially flush on the pad (~0.5 mm overlap, imperceptible) with NO z-fighting
+# against the coincident table surface and NO occlusion. A ROUND visual is
+# rotationally symmetric -> no "pad appears rotated" under the top cam.
+
+def Xform "World"
+{
+    def Scope "Looks"
+    {
+        def Material "PadMat"
+        {
+            token outputs:surface.connect = </World/Looks/PadMat/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.18, 0.18, 0.2)
+                float inputs:metallic = 0
+                float inputs:roughness = 1
+                token outputs:surface
+            }
+        }
+    }
+
+    # VISUAL-ONLY (no collider). Empirically ANY proud pad collider collapses the
+    # arm on the home-return (worse the higher: top 0.774 -> mean|s-a| 115; top
+    # 0.77549 -> 143/211), independent of table overlap. So no collider — the cube
+    # rests on the table-top collider (0.770); the pad is a pure visual marker.
+    def Cylinder "Pad"
+    {
+        uniform token axis = "Z"
+        float3[] extent = [(-0.35, -0.35, -0.002), (0.35, 0.35, 0.002)]
+        double height = 0.004
+        double radius = 0.35
+        rel material:binding = </World/Looks/PadMat>
+        custom bool refinementEnableOverride = 1
+        custom int refinementLevel = 6
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+}

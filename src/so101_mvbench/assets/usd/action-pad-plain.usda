@@ -1,0 +1,43 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+# Logo-free, fully-matte variant of action-pad.usda for the Phase-4 cylindrical-room
+# scene. References the shared pad (geometry + collision + UV mapping untouched) and
+# overrides the material only:
+#   - diffuse logo texture  -> flat neutral-grey (textures/pad-plain.png)
+#   - roughness texture     -> white (textures/pad-rough.png) => roughness 1.0
+#   - specular              -> 0
+# Rationale: the original semi-gloss pad produced a per-camera specular highlight
+# from the ceiling DiskLight (view-dependent glare/shadow). A fully-diffuse matte
+# pad renders identically across all camera angles — required for consistent
+# multi-cam training data. The shared action-pad.usda is NOT modified.
+
+def Xform "World" (
+    prepend references = @./action-pad.usda@
+)
+{
+    over "Looks"
+    {
+        over "pad_mtl"
+        {
+            over "Principled_BSDF"
+            {
+                float inputs:specular = 0
+            }
+
+            over "Image_Texture_001"
+            {
+                asset inputs:file = @./textures/pad-plain.png@
+            }
+
+            over "Image_Texture_002"
+            {
+                asset inputs:file = @./textures/pad-rough.png@
+            }
+        }
+    }
+}

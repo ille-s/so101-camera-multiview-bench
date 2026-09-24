@@ -1,0 +1,8 @@
+{
+  "_comment": "Joint positions in degrees. Order: [shoulder_pan, shoulder_lift, elbow_flex, wrist_flex, wrist_roll, gripper]. poses.home [0,0,0,90,-90,0] is the HOME/return (END) pose -- the Y-button target and the eval '3_home' target, arm extended over the table. Shipped as a package resource so the home pose does not silently fall back to the environment default. Values carried over from the thesis workspace config/hardware/lerobot_master_config.json.",
+  "unit": "deg",
+  "poses": {
+    "home": [0, 0, 0, 90, -90, 0],
+    "folded": [0, -85, 85, 65, -90, 0]
+  }
+}

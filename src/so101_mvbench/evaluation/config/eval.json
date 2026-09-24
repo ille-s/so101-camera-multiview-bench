@@ -1,0 +1,11 @@
+{
+  "target_end_position_deg": [0, 0, 0, 90, -90, 0],
+  "target_end_position_tolerance_deg": 8.6,
+  "plateau_steps": {
+    "1_reach": 600,
+    "2_lift": 600
+  },
+  "description": "target_end_position_deg: Target pose at end of successful lift-and-return (Y-button home from training recording). Used by eval_tracker.py for stage-3 (home-reached) detection. Arm-start-pose for eval is separately controlled by SO101_CFG.init_state + warmup_action in eval_session.py (matches recorder pattern). plateau_steps: per-stage max-stage-stuck timeout (60 Hz). Episode terminates if max_stage hasn't advanced for this many steps (only at stage >= 1). Current: 1_reach=2_lift=600 (10s); dict structure retained to allow per-stage differentiation in future (e.g. different budgets for slow vs fast transitions).",
+  "source": "Migrated from config/hardware/lerobot_master_config.json isaaclab.poses.home (hardware-centric) to experiments-local config.",
+  "version": "1.2.0"
+}

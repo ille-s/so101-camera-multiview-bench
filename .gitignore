@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+
+# Environments
+.venv*/
+venv/
+env/
+
+# Build / cache
+build/
+dist/
+docs/_build/
+_build/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+
+# User data (never committed; see so101_mvbench.settings)
+outputs/
+datasets/
+
+# Run logs (centralised per script; transient)
+log/
+
+# OS / editor
+.DS_Store
+*.swp
+
+# Session state (Remember plugin)
+.remember/

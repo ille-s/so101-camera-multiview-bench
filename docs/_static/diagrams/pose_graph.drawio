@@ -1,0 +1,103 @@
+<mxfile host="Electron">
+  <diagram id="CojW8s8dHaSvJQJR1NcQ" name="Page-1">
+    <mxGraphModel dx="1596" dy="671" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="583" math="1" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeColor=#22CC40;strokeWidth=2;fontFamily=JetBrains Mono;" value="" vertex="1">
+          <mxGeometry height="379" width="354.52" x="428.48" y="57" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeColor=#0000CC;strokeWidth=2;fontFamily=JetBrains Mono;" value="" vertex="1">
+          <mxGeometry height="374" width="221" x="73" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;                            verticalAlign=middle;whiteSpace=wrap;rounded=1;                            fontSize=16;fontStyle=1;labelBackgroundColor=none;fontFamily=JetBrains Mono;" value="Pose Graph" vertex="1">
+          <mxGeometry height="30" width="500" x="124" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;                            fillColor=#1565C0;strokeWidth=2;                            fontColor=#FFFFFF;fontSize=13;verticalAlign=middle;labelBackgroundColor=none;rounded=1;fontFamily=JetBrains Mono;" value="&lt;b&gt;$$\{0\}$$&lt;/b&gt;" vertex="1">
+          <mxGeometry height="80" width="80" x="332.8" y="464" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;                            fillColor=#1565C0;strokeWidth=2;                            fontColor=#FFFFFF;fontSize=13;verticalAlign=middle;labelBackgroundColor=none;rounded=1;fontFamily=JetBrains Mono;" value="&lt;b&gt;$$\{B\}$$&lt;/b&gt;" vertex="1">
+          <mxGeometry height="80" width="80" x="101" y="297" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;                            fillColor=#1565C0;strokeWidth=2;                            fontColor=#FFFFFF;fontSize=13;verticalAlign=middle;labelBackgroundColor=none;rounded=1;fontFamily=JetBrains Mono;" value="&lt;b&gt;$$\{E\}$$&lt;/b&gt;" vertex="1">
+          <mxGeometry height="80" width="80" x="101" y="159" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;                            fillColor=#1565C0;strokeWidth=2;                            fontColor=#FFFFFF;fontSize=13;verticalAlign=middle;labelBackgroundColor=none;rounded=1;fontFamily=JetBrains Mono;" value="&lt;b&gt;$$\{W\}$$&lt;/b&gt;" vertex="1">
+          <mxGeometry height="80" width="80" x="613.7999999999998" y="297" as="geometry" />
+        </mxCell>
+        <mxCell id="9" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;                            fillColor=#1565C0;strokeWidth=2;                            fontColor=#FFFFFF;fontSize=13;verticalAlign=middle;labelBackgroundColor=none;rounded=1;fontFamily=JetBrains Mono;" value="&lt;b&gt;$$\{C_E\}$$&lt;/b&gt;" vertex="1">
+          <mxGeometry height="80" width="80" x="618" y="76" as="geometry" />
+        </mxCell>
+        <mxCell id="10" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;                            fillColor=#1565C0;strokeWidth=2;                            fontColor=#FFFFFF;fontSize=13;verticalAlign=middle;labelBackgroundColor=none;rounded=1;fontFamily=JetBrains Mono;" value="&lt;b&gt;$$\{P\}$$&lt;/b&gt;" vertex="1">
+          <mxGeometry height="80" width="80" x="454" y="159" as="geometry" />
+        </mxCell>
+        <mxCell id="11" edge="1" parent="1" source="5" style="html=1;fontColor=default;fontSize=11;                            endArrow=block;endFill=1;strokeWidth=2;curved=1;labelBackgroundColor=none;edgeStyle=orthogonalEdgeStyle;fontFamily=JetBrains Mono;" target="6" value="$$ {}^{0}\mathbf{T}_{B} $$">
+          <mxGeometry relative="1" x="-0.4178" y="-24" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="12" edge="1" parent="1" source="5" style="html=1;fontColor=default;fontSize=11;                            endArrow=block;endFill=1;strokeWidth=2;curved=1;labelBackgroundColor=none;edgeStyle=orthogonalEdgeStyle;fontFamily=JetBrains Mono;" target="8" value="$$ {}^{0}\mathbf{T}_{W} $$">
+          <mxGeometry relative="1" x="-0.2544" y="34" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="13" edge="1" parent="1" source="6" style="html=1;fontColor=default;fontSize=11;                            endArrow=block;endFill=1;strokeWidth=2;curved=1;labelBackgroundColor=none;edgeStyle=orthogonalEdgeStyle;fontFamily=JetBrains Mono;" target="7" value="$$ {}^{B}\mathbf{T}_{E} $$">
+          <mxGeometry relative="1" y="-40" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="14" edge="1" parent="1" source="8" style="html=1;fontColor=default;fontSize=11;                            endArrow=block;endFill=1;strokeWidth=2;curved=1;rounded=1;align=center;verticalAlign=middle;fontFamily=JetBrains Mono;labelBackgroundColor=none;endArrow=classic;dashed=1;dashPattern=1 2;exitX=0.535;exitY=-0.013;exitDx=0;exitDy=0;exitPerimeter=0;edgeStyle=orthogonalEdgeStyle;" target="9" value="$$ {}^{W}\mathbf{T}_{C_E} $$">
+          <mxGeometry relative="1" x="0.0029" y="-42" as="geometry">
+            <mxPoint y="4" as="offset" />
+            <mxPoint x="710.0900000000001" y="252" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="15" edge="1" parent="1" source="7" style="html=1;fontColor=default;fontSize=11;                            endArrow=block;endFill=1;strokeWidth=1.5;dashed=1;curved=1;labelBackgroundColor=none;entryX=0;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;fontFamily=JetBrains Mono;" target="10" value="$$ \color{gray}{{}^{E}\mathbf{T}_{P}\ \text{(learned)}} $$">
+          <mxGeometry relative="1" x="0.3114" y="-31" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="16" edge="1" parent="1" source="5" style="html=1;fontColor=default;fontSize=11;                            endArrow=block;endFill=1;strokeWidth=1.5;dashed=1;curved=1;rounded=1;align=center;verticalAlign=middle;fontFamily=JetBrains Mono;labelBackgroundColor=none;endArrow=classic;edgeStyle=orthogonalEdgeStyle;exitX=0.556;exitY=0.007;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.308;entryY=0.949;entryDx=0;entryDy=0;entryPerimeter=0;" target="10" value="$$ \color{gray}{{}^{0}\mathbf{T}_{P}} $$">
+          <mxGeometry relative="1" x="0.2193" y="-3" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="17" edge="1" parent="1" source="9" style="html=1;fontColor=#FF1111;fontSize=11;                            endArrow=block;endFill=1;strokeWidth=1.5;dashed=1;curved=1;rounded=1;align=center;verticalAlign=middle;fontFamily=JetBrains Mono;labelBackgroundColor=none;endArrow=classic;edgeStyle=orthogonalEdgeStyle;strokeColor=#330000;entryX=0.75;entryY=0.072;entryDx=0;entryDy=0;entryPerimeter=0;" target="10" value="$$ \color{gray}{{}^{C_E}\mathbf{T}_{P}\ \text{(observed)}} $$">
+          <mxGeometry relative="1" x="-0.0658" y="-16" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="18" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontColor=#0000CC;fontFamily=JetBrains Mono;" value="so101 arm" vertex="1">
+          <mxGeometry height="30" width="70" x="148.5" y="27" as="geometry" />
+        </mxCell>
+        <mxCell id="19" edge="1" parent="1" source="8" style="html=1;fontColor=default;fontSize=11;                            endArrow=block;endFill=1;strokeWidth=1.5;dashed=1;curved=1;rounded=1;align=center;verticalAlign=middle;fontFamily=JetBrains Mono;labelBackgroundColor=none;endArrow=classic;edgeStyle=orthogonalEdgeStyle;entryX=0.703;entryY=0.95;entryDx=0;entryDy=0;entryPerimeter=0;" target="10" value="$$ \color{gray}{{}^{W}\mathbf{T}_{P}} $$">
+          <mxGeometry relative="1" x="-0.506" y="-26" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="648.48" y="374" as="sourcePoint" />
+            <mxPoint x="648.48" y="254" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="20" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;                            fillColor=#1565C0;strokeWidth=2;                            fontColor=#FFFFFF;fontSize=13;verticalAlign=middle;labelBackgroundColor=none;rounded=1;fontFamily=JetBrains Mono;" value="&lt;b&gt;$$\{C_w\}$$&lt;/b&gt;" vertex="1">
+          <mxGeometry height="80" width="80" x="199.62" y="76" as="geometry" />
+        </mxCell>
+        <mxCell id="21" edge="1" parent="1" source="7" style="html=1;fontColor=default;fontSize=11;                            endArrow=block;endFill=1;strokeWidth=2;curved=1;labelBackgroundColor=none;entryX=0.001;entryY=0.532;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;fontFamily=JetBrains Mono;" target="20" value="$$ {}^{E}\mathbf{T}_{C_w} $$">
+          <mxGeometry relative="1" x="-0.2555" y="10" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="175" y="224" as="sourcePoint" />
+            <mxPoint x="175" y="104" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="22" edge="1" parent="1" source="20" style="html=1;fontColor=#FF1111;fontSize=11;                            endArrow=block;endFill=1;strokeWidth=1.5;dashed=1;curved=1;rounded=1;align=center;verticalAlign=middle;fontFamily=JetBrains Mono;labelBackgroundColor=none;endArrow=classic;entryX=0;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;strokeColor=#330000;" target="10" value="$$ \color{gray}{{}^{C_w}\mathbf{T}_{P}\ \text{(observed)}} $$">
+          <mxGeometry relative="1" x="-0.3324" y="26" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="426" y="130" as="sourcePoint" />
+            <mxPoint x="443" y="126" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="23" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontColor=#22CC40;fontFamily=JetBrains Mono;" value="Bin Spawner Workspace" vertex="1">
+          <mxGeometry height="30" width="183" x="515" y="27" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
